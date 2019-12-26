@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import org.beetl.core.Configuration;
 import org.beetl.core.GroupTemplate;
 import org.beetl.core.Template;
+import org.beetl.core.resource.FileResourceLoader;
 import org.beetl.core.resource.StringTemplateResourceLoader;
 
 /**
@@ -15,7 +16,9 @@ public class GroupModel {
     public static void main(String[] args) {
         //初始化代码
         StringTemplateResourceLoader resourceLoader = new StringTemplateResourceLoader();
+//        FileResourceLoader fileResourceLoader =  new FileResourceLoader("");
         Configuration cfg = Configuration.defaultConfiguration();
+        //这边是核心，需要两个参数，一个是模板资源加载器，一个是配置类
         GroupTemplate gt = new GroupTemplate(resourceLoader, cfg);
         //获取模板
         Template t = gt.getTemplate("hello,${name}");
